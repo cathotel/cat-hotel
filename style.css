@@ -10,55 +10,195 @@
     line-height: 1.8;
   }
   
-  .site-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background: rgba(255,255,255,0.94);
-    box-shadow: 0 2px 14px rgba(0,0,0,0.08);
-  }
-  
-  .header-inner {
-    max-width: 1180px;
-    margin: auto;
-    padding: 14px 22px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .logo {
-    font-size: 22px;
-    font-weight: bold;
-    color: #8b5e3c;
-    text-decoration: none;
-  }
-  
-  .nav a {
-    margin-left: 18px;
-    color: #3b3028;
-    text-decoration: none;
-    font-size: 14px;
-  }
+.site-header {
+  position: relative;
+  width: 100%;
+  z-index: 1000;
+
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.08);
+}
+
+.header-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 14px 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Logo 日文和中文切换 */
+.logo {
+  display: inline-grid;
+  align-items: center;
+  text-decoration: none;
+  color: #8b5e3c;
+  font-size: 22px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.logo-ja,
+.logo-zh {
+  grid-area: 1 / 1;
+  transition: opacity 0.25s ease;
+}
+
+.logo-ja {
+  opacity: 1;
+}
+
+.logo-zh {
+  opacity: 0;
+}
+
+.logo:hover .logo-ja {
+  opacity: 0;
+}
+
+.logo:hover .logo-zh {
+  opacity: 1;
+}
+
+.logo,
+.logo:visited,
+.logo:hover {
+  text-decoration: none;
+  color: #8b5e3c;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px 22px;
+}
+
+/* 导航链接 */
+.nav a,
+.nav a:visited {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+
+  color: #3b3028;
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+
+  margin: 0;
+}
+
+/* 两种语言占据同一个位置 */
+.nav-ja,
+.nav-zh {
+  grid-area: 1 / 1;
+  transition: opacity 0.25s ease;
+}
+
+/* 中文也参与宽度计算，避免切换时导航跳动 */
+.nav-ja {
+  opacity: 1;
+}
+
+.nav-zh {
+  opacity: 0;
+}
+
+/* 鼠标放上去显示中文 */
+.nav a:hover .nav-ja {
+  opacity: 0;
+}
+
+.nav a:hover .nav-zh {
+  opacity: 1;
+}
+
+/* 始终没有下划线 */
+.nav a:hover,
+.nav a:focus-visible {
+  color: #8b5e3c;
+  text-decoration: none;
+}
+
+/* 键盘操作也可以切换 */
+.nav a:focus-visible .nav-ja {
+  opacity: 0;
+}
+
+.nav a:focus-visible .nav-zh {
+  opacity: 1;
+}
   
   /* 一番上の背景画像エリア */
+/* ===== 背景图片显示窗口 ===== */
+/* ===== 背景图片显示窗口 ===== */
+/* ===== 首页背景图片窗口 ===== */
 .hero {
-  min-height: 620px;
-  padding: 150px 20px 100px;
+  /* 四个方向的间距 */
+  --top: 6vh;
+  --bottom: 6vh;
+  --left: 5%;
+  --right: 5%;
+
+  /* 窗口宽度 */
+  width: calc(100% - var(--left) - var(--right));
+
+  /* 根据内容自动增加高度 */
+  min-height: 500px;
+  height: auto;
+
+  /* 四周间距 */
+  margin: var(--top) var(--right) var(--bottom) var(--left);
+
+  /* 固定背景图片 */
+  background-image: url("images/main.jpg");
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  /* 文字布局 */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background:
-    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.45)),
-    url("images/main.jpg") center / cover no-repeat;
-  color: #fff;
+
+  padding: 60px 30px;
+
+  /* 不再裁切文字 */
+  overflow: visible;
+
+  color: white;
 }
 
 .hero-content {
+  width: 100%;
   max-width: 820px;
+  min-width: 0;
+}
+
+/* 欢迎区域的介绍文字 */
+.hero .hero-description {
+  background: rgba(255, 255, 255, 0.7);
+  color: #000;
+
+  width: 100%;
+  max-width: 800px;
+
+  padding: 20px;
+  margin: 20px auto 30px;
+
+  font-size: clamp(14px, 1.5vw, 18px);
+  line-height: 1.8;
+
+  overflow-wrap: anywhere;
 }
 
 /* YouTube丸ボタン */
@@ -81,18 +221,16 @@
   transform: scale(1.08);
 }
   
-  .hero h1 {
-    font-size: 56px;
-    line-height: 1.25;
-    margin: 0 0 24px;
-    color: #7a4f2b;
-  }
-  
-  .hero p {
-    font-size: 18px;
-    max-width: 760px;
-    margin: 0 auto 28px;
-  }
+.hero h1 {
+  font-size: clamp(30px, 5vw, 56px);
+  line-height: 1.3;
+  margin: 0 0 24px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: white;
+}
   
   .section {
     max-width: 1180px;
@@ -242,18 +380,19 @@
   
   @media (max-width: 900px) {
     .header-inner {
-      display: block;
-      text-align: center;
-    }
-  
-    .nav {
-      margin-top: 12px;
-    }
-  
-    .nav a {
-      display: inline-block;
-      margin: 4px 8px;
-    }
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav {
+    justify-content: center;
+  }
+
+  .nav a {
+    margin: 0;
+    font-size: 13px;
+  }
   
     .hero h1 {
       font-size: 42px;
@@ -290,14 +429,309 @@
       background:url("images/hotel1.jpg") center/cover;
     }
   }
-   /* =========================
-   hotel1.html detail page
-  ========================= */
 
-  .hotel-detail-hero {
+
+/* =================================
+   ホテルの写真
+================================= */
+
+/* 茶色圆角背景，与屏幕同宽 */
+.gallery-original {
+  width: 100%;
+  max-width: none;
+
+  margin-top: 60px;
+  margin-right: 0;
+  margin-bottom: 0 !important;
+  margin-left: 0;
+
+  padding: 60px 5%;
+
+  background-color: #b99b7a;
+  border-radius: 35px 35px 0 0;
+  box-sizing: border-box;
+}
+
+/* 左边文字 + 右边图片 */
+.gallery-original .gallery-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 30px;
+  align-items: start;
+
+  background: transparent;
+}
+
+/* 左边标题 */
+.gallery-original .gallery-info h2 {
+  font-size: 28px;
+  line-height: 1.4;
+  color: #ffffff;
+  margin: 0 0 25px;
+}
+
+/* 特点文字 */
+.gallery-original .gallery-features p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 15px;
+  line-height: 1.8;
+  color: #ffffff;
+  white-space: nowrap;
+
+  margin: 0 0 14px;
+}
+
+/* 小圆形对号 */
+.gallery-original .check-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: 18px;
+  height: 18px;
+
+  border: 1.5px solid #ffffff;
+  border-radius: 50%;
+
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 1;
+
+  box-sizing: border-box;
+}
+
+/* 右边图片：两列 */
+.gallery-original .gallery-images {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  min-width: 0;
+}
+
+/* 每一列独立排列，避免大块空白 */
+.gallery-original .gallery-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+/* 图片保持原始宽高比例 */
+.gallery-original .gallery-column img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* =================================
+   手机和平板适配
+================================= */
+
+@media (max-width: 700px) {
+  .gallery-original {
+    width: 100%;
+    margin: 40px 0;
+    padding: 40px 20px;
+    border-radius: 25px;
+  }
+
+  .gallery-original .gallery-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .gallery-original .gallery-info h2 {
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+
+  .gallery-original .gallery-images {
+    gap: 10px;
+  }
+
+  .gallery-original .gallery-column {
+    gap: 10px;
+  }
+}
+
+
+/* ================================
+   問い合わせ
+================================ */
+
+/* 整个联系区域 */
+.contact-section {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 60px 5%;
+
+  background-color: #ffffff;
+  border-radius: 0 0 35px 35px;
+  box-sizing: border-box;
+}
+
+/* 左右两列 */
+.contact-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+}
+
+/* 左边信息 */
+
+.contact-info {
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: Arial, "Noto Sans JP", "Meiryo", sans-serif;
+}
+
+
+.contact-info h2 {
+  font-family: inherit;
+  text-align: center;
+}
+
+/* 地址、交通、营业时间 */
+.contact-info p {
+  font-family: Arial, "Noto Sans JP", "Meiryo", sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+  margin: 0 0 6px !important;
+  padding: 0;
+  text-align: center;
+}
+
+.contact-hours {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Google Maps 按钮 */
+.contact-map-button {
+  display: inline-block;
+  width: fit-content;
+
+  margin-top: 30px;
+  padding: 10px 18px;
+
+  background-color: #000000;
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  text-align: center;
+
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.contact-map-button:hover {
+  background-color: #333333;
+  transform: none;
+}
+
+/* 右边二维码 */
+.contact-qr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-qr img {
+  display: block;
+  width: 268px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ================================
+   手机适配
+================================ */
+
+@media (max-width: 700px) {
+
+  .contact-section {
+    padding: 70px 20px;
+  }
+
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .contact-info h2 {
+    font-size: 32px;
+    margin-bottom: 25px;
+  }
+
+  .contact-info p {
+    font-size: 15px;
+  }
+
+  .contact-qr img {
+    width: 220px;
+  }
+}
+
+  /* =========================
+  hotel1.html detail page
+========================= */
+
+/* 1号酒店欢迎区域文字 */
+
+.hotel-detail-text {
+  text-align: left;
+  font-family: Arial, "Noto Sans JP", "Meiryo", sans-serif;
+  animation: hotelTextUp 1s ease-out both;
+
+}
+
+@keyframes hotelTextUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hotel-detail-text h1 {
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #244b3b;
+  margin: 12px 0 24px;
+}
+
+.hotel-detail-hero {
     max-width: 1180px;
     margin: 0 auto;
-    padding: 140px 22px 70px;
+    padding: 0px 22px 70px;
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     gap: 46px;
@@ -311,46 +745,108 @@
     text-transform: uppercase;
   }
 
-  .hotel-detail-text h1 {
-    font-size: 48px;
-    line-height: 1.25;
-    color: #7a4f2b;
-    margin: 12px 0 24px;
+  .hotel-detail-image {
+    height: 440px;
+    overflow: hidden;
+    animation: hotelImageZoom 1.2s ease-out both;
   }
 
+  @keyframes hotelImageZoom {
+  from {
+    opacity: 0;
+    transform: scale(1.15);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
   .hotel-detail-image img {
+    display: block;
     width: 100%;
-    aspect-ratio: 4 / 5;
+    height: 480px;
     object-fit: cover;
-    border-radius: 34px;
-    box-shadow: 0 18px 38px rgba(103, 67, 36, 0.18);
+    object-position: center center;
+    border-radius: 50% 50% 0 0;
+
+    /* 图片向上移动，顶部被遮挡 */
+    transform: translateY(-40px);                     
   }
 
   .info-cards {
     max-width: 1180px;
-    margin: 0 auto 80px;
-    padding: 0 22px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
+  margin: 0 auto 80px;
+  padding: 0 22px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
   }
 
   .info-card {
-    background: #fff;
-    border-radius: 24px;
-    padding: 28px;
-    text-align: center;
-    box-shadow: 0 12px 30px rgba(103, 67, 36, 0.12);
+   background: #fff;
+  border-radius: 24px;
+  padding: 35px 25px;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(103, 67, 36, 0.12);
+  animation: infoCardUp 0.9s ease-out both;
   }
+  
+  /* 第一个：Find Us */
+.info-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+/* 第二个：Open Hours */
+.info-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+/* 第三个：Reservation */
+.info-card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes infoCardUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
   .info-icon {
-    font-size: 34px;
+    width: 70px;
+  height: 70px;
+  background-color: #e9a15b;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto 18px;
   }
+  .info-icon img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
 
   .info-card h3 {
-    color: #7a4f2b;
-    margin: 12px 0 8px;
+    color: #244b3b;
+  font-size: 24px;
+  margin: 12px 0 18px;
   }
+
+  .info-card p {
+  font-size: 15px;
+  line-height: 1.9;
+}
 
   .room-list {
     max-width: 1180px;
@@ -436,35 +932,431 @@
     box-shadow: 0 12px 30px rgba(103, 67, 36, 0.14);
   }
 
-  .license-section {
-    max-width: 1180px;
-    margin: auto;
-    padding: 70px 22px 100px;
+/* Cat hotel */
+.hotel-detail-text .overline {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 0 18px;
+}
+
+/* 住宿说明 */
+.hotel-description {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.8;
+  margin: 0 0 8px;
+  color: #333333;
+}
+
+/* 完全個室、完全予約制 */
+.hotel-highlight {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.6;
+  margin: 0 0 28px;
+  color: #222222;
+}
+
+/* 缩小画面时调整字体 */
+
+@media (max-width: 700px) {
+
+  /* 欢迎区域改成上下排列 */
+  .hotel-detail-hero {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 0 22px 50px;
   }
 
+  /* 图片放在上面 */
+  .hotel-detail-image {
+    order: 1;
+  }
+
+  /* 文字放在下面 */
+  .hotel-detail-text {
+    order: 2;
+  }
+
+  /* 欢迎区域文字 */
+  .hotel-detail-text h1 {
+    font-size: 30px;
+  }
+
+  .hotel-description {
+    font-size: 15px;
+  }
+
+  .hotel-highlight {
+    font-size: 17px;
+  }
+}
+
+
+
+/* VIP 房间整体布局 */
+.vip-room {
+  max-width: 1180px;
+  margin: 0 auto 100px;
+  padding: 60px 22px;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+/* 左边文字 */
+.vip-room-text {
+  text-align: left;
+  max-width: none;
+  margin: 0;
+}
+
+.vip-room-text h2 {
+  font-size: 26px;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+.vip-room-text p {
+  font-size: 16px;
+  line-height: 2;
+  color: #555;
+  margin-bottom: 24px;
+}
+
+.vip-room-price {
+  display: inline-block;
+  background-color: #e9a15b;
+  color: #222222;
+
+  font-size: 20px;
+  font-weight: 600;
+
+  padding: 10px 24px;
+  border-radius: 999px;
+  margin-top: 10px;
+}
+
+/* 右边图片轮播 */
+.vip-slider {
+  position: relative;
+  min-width: 0;
+}
+
+.vip-slider-window {
+  width: 100%;
+  overflow: hidden;
+}
+
+.vip-slider-track {
+  display: flex;
+  gap: 16px;
+  transition: transform 0.5s ease;
+}
+
+.vip-slider-track img {
+  flex: 0 0 calc((100% - 16px) / 2);
+  width: calc((100% - 16px) / 2);
+  height: 340px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+
+/* 左右箭头：位于图片两侧 */
+.vip-prev,
+.vip-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+
+  width: 44px;
+  height: 44px;
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+  background: #e9a15b;
+  color: white;
+
+  font-size: 22px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 左箭头 */
+.vip-prev {
+  left: -22px;
+}
+
+/* 右箭头 */
+.vip-next {
+  right: -22px;
+}
+
+/* 没有可切换图片时隐藏箭头 */
+.vip-prev:disabled,
+.vip-next:disabled {
+  display: none;
+}
+
+/* 鼠标经过 */
+.vip-prev:hover,
+.vip-next:hover {
+  background: #b98255;
+}
+/* シニアルーム1：两张图片一大一小 */
+.senior-room1-gallery {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  min-width: 0;
+}
+
+.senior-room1-large {
+  width: 60%;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+}
+
+.senior-room1-small {
+  width: calc(40% - 16px);
+  height: 240px;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+}
+
+/* シニアルーム2：单张图片 */
+.senior-room2-image {
+  width: 100%;
+  min-width: 0;
+}
+
+/* シニアルーム2：与シニアルーム1的大图相同尺寸 */
+.senior-room2-image img {
+  display: block;
+  width: 60%;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* 手机适配 */
+@media (max-width: 700px) {
+  .vip-room {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 40px 22px;
+  }
+
+  .vip-room-text h2 {
+    font-size: 23px;
+  }
+
+  .vip-slider-track img {
+    height: 240px;
+  }
+
+  .vip-prev,
+  .vip-next {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+
+  .vip-prev {
+    left: -12px;
+  }
+
+  .vip-next {
+    right: -12px;
+  }
+
+  .senior-room1-large {
+    height: 260px;
+  }
+
+  .senior-room1-small {
+    height: 190px;
+  }
+
+  .senior-room2-image img {
+    height: 260px;
+  }
+}
+
+
+/* 備考部分 */
+/* 備考：左右布局 */
+.hotel-notes {
+  max-width: 1180px;
+  margin: 0 auto 100px;
+  padding: 60px 22px;
+
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 350px;
+  align-items: start;
+}
+
+/* 左侧文字 */
+.hotel-notes-left h2 {
+  font-size: 26px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.hotel-notes-left p {
+  font-size: 16px;
+  line-height: 2;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+
+/* 備考右侧 */
+.hotel-notes-right {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* 每个服务项目：图标在左，文字在右 */
+.hotel-notes-service {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-align: left;
+}
+
+/* 图标 */
+.hotel-notes-service img {
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+  border-radius: 0;
+  flex-shrink: 0;
+}
+
+/* 文字 */
+.hotel-notes-service p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+}
+
+@media (max-width: 700px) {
+  .hotel-notes {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 40px 22px;
+  }
+
+  .hotel-notes-left h2 {
+    font-size: 23px;
+  }
+
+  .hotel-notes-service img {
+    height: 190px;
+  }
+
+  .hotel-notes-services {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+}
+/* ===== hotel1 問い合わせ ===== */
+/* hotel1 問い合わせ：使用页面原本的背景 */
+#contact.contact {
+  background: transparent;
+  width: 100%;
+}
+
+/* 保持内容居中 */
+#contact .contact-container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+
+/* ===== 動物取扱業登録証 ===== */
+.animal-registration {
+  background: transparent;
+  width: 100%;
+  padding: 40px 22px 60px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.animal-registration h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+.animal-registration img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.animal-registration p {
+  text-align: center;
+  line-height: 1.8;
+}
+
+
+.license-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  /* 左右间距40px，上下间距30px */
+  column-gap: 40px;
+  row-gap: 30px;
+
+  max-width: 850px;
+  margin: 0 auto;
+
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+}
+
+.license-grid p {
+  margin: 0;
+  text-align: left;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+}
+
+@media (max-width: 700px) {
   .license-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    background: #fff;
-    border-radius: 28px;
-    padding: 30px;
-    box-shadow: 0 12px 30px rgba(103, 67, 36, 0.12);
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
+}
 
-  /* hotel1 スマホ対応 */
-  @media (max-width: 900px) {
-    .hotel-detail-hero,
-    .info-cards,
-    .room-detail,
-    .notes-section,
-    .access-section,
-    .license-grid {
-      grid-template-columns: 1fr;
-    }
 
-    .hotel-detail-text h1 {
-      font-size: 36px;
-    }
-  }
+
+
+
   
