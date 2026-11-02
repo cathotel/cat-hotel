@@ -354,20 +354,15 @@
   }
   
   @media (max-width: 700px) {
-    .hero {
-    background-image: url("images/main.jpg");
+   .hero {
+    --top: 0px;
+    --bottom: 0px;
+    --left: 0px;
+    --right: 0px;
 
-    /* 显示整张图片，不裁切 */
-    background-size: contain;
-
-    /* 图片居中 */
-    background-position: center top;
-
-    /* 不重复 */
-    background-repeat: no-repeat;
-
-    /* 修复手机端 fixed 背景问题 */
     background-attachment: scroll;
+    background-position: center;
+    background-size: contain;
   }
   
     .hero h1 {
