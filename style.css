@@ -1359,8 +1359,8 @@ html[lang="ja"] .lang-zh {
 
 /* ===== 首页 Hero：手机竖屏、横屏 ===== */
 
-@media (max-width: 700px),
-       (max-height: 500px) and (pointer: coarse) {
+@media (max-width: 900px),
+       (pointer: coarse) {
 
   #home.hero {
     display: flex;
