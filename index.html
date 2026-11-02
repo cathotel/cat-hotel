@@ -9,7 +9,6 @@
 </head>
 
 <body>
-<div class="hero-fixed-background" aria-hidden="true"></div>
 <header class="site-header">
   <div class="header-inner">
     <a href="index.html" class="logo" data-i18n="site.name">肉球マチ</a>
@@ -29,6 +28,13 @@
 <main>
 
   <section id="home" class="hero">
+
+    <img
+      src="images/main.jpg"
+      class="hero-background-image"
+      alt=""
+      aria-hidden="true"
+    >
     
     <div class="hero-content">
       
@@ -268,48 +274,6 @@
   showOnScroll();
   </script>
   
-<script>
-(function () {
-  const hero = document.getElementById("home");
-  const background = document.querySelector(".hero-fixed-background");
-
-  if (!hero || !background) return;
-
-  function updateHeroBackground() {
-    if (window.innerWidth > 700) {
-      background.style.clipPath = "";
-      return;
-    }
-
-    const rect = hero.getBoundingClientRect();
-
-    const viewportWidth = window.innerWidth;
-    const viewportHeight = window.innerHeight;
-
-    // Hero 在屏幕中的可见区域
-    const top = Math.max(0, rect.top);
-    const bottom = Math.min(viewportHeight, rect.bottom);
-    const left = Math.max(0, rect.left);
-    const right = Math.min(viewportWidth, rect.right);
-
-    if (bottom <= top || right <= left) {
-      background.style.clipPath = "inset(100% 0 0 0)";
-      return;
-    }
-
-    // 只显示 Hero 窗口内的固定背景
-    background.style.clipPath =
-      `inset(${top}px ${viewportWidth - right}px ` +
-      `${viewportHeight - bottom}px ${left}px)`;
-  }
-
-  window.addEventListener("scroll", updateHeroBackground, { passive: true });
-  window.addEventListener("resize", updateHeroBackground);
-
-  updateHeroBackground();
-})();
-</script>
-
-  <script src="language.js"></script>
+ <script src="language.js"></script>
 </body>
 </html>
