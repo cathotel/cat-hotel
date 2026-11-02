@@ -1487,3 +1487,56 @@ html[lang="ja"] .lang-zh {
   margin-left: 3px;
   flex-shrink: 0;
 }
+
+
+/* ====================================
+   hotel1 / hotel2 信息卡片上移动画
+==================================== */
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(45px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 三个卡片依次出现 */
+.info-cards .fade-up:nth-child(2) {
+  transition-delay: 0.15s;
+}
+
+.info-cards .fade-up:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+/* 手机端纵向排列 */
+@media (max-width: 900px) {
+  .info-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .info-cards .info-card {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+}
+
+/* 减少动画偏好 */
+@media (prefers-reduced-motion: reduce) {
+  .fade-up {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
