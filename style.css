@@ -1380,13 +1380,12 @@ html[lang="ja"] .lang-zh {
     padding: 0;
 
     /* 使用 Grid 叠加图片和文字 */
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
+    display: block;
 
     /* 手机不再使用旧背景 */
     background-image: none !important;
-    background-color: #f5f0e9;
-
+    background-color: transparent;
+    
     /* sticky 不能被 hidden 裁切 */
     overflow: visible;
     isolation: isolate;
@@ -1395,9 +1394,6 @@ html[lang="ja"] .lang-zh {
   /* 图片所在的 sticky 层 */
   #home .hero-sticky-image {
     display: block;
-
-    grid-column: 1;
-    grid-row: 1;
 
     position: sticky;
     top: 10px;
@@ -1408,6 +1404,8 @@ html[lang="ja"] .lang-zh {
 
     z-index: 0;
     pointer-events: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
 
   /* 保持 main.jpg 的完整比例 */
@@ -1420,14 +1418,17 @@ html[lang="ja"] .lang-zh {
 
     object-fit: contain;
     object-position: center;
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
 
   /* 文字在图片前面滚动 */
   #home .hero-content {
-    grid-column: 1;
-    grid-row: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
 
-    position: relative;
     z-index: 1;
 
     align-self: start;
@@ -1441,6 +1442,7 @@ html[lang="ja"] .lang-zh {
 
     /* 不使用不透明背景盖住图片 */
     background: transparent;
+    margin-bottom: 0;
   }
 
   #home.hero h1 {
