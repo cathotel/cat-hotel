@@ -356,31 +356,7 @@
 /* 电脑端隐藏手机专用背景 */
 @media (max-width: 700px) {
 
-  /* Hero 窗口 */
-  .hero {
-    --top: 20px;
-    --bottom: 20px;
-    --left: 3%;
-    --right: 3%;
-
-    width: 94%;
-    margin: 20px 3%;
-
-    min-height: 500px;
-    height: auto;
-    padding: 40px 20px;
-
-    position: relative;
-    display: block;
-
-    background-image: none;
-    background-color: #f5f0e9;
-
-    overflow: clip;
-    isolation: isolate;
-  }
-
-
+  
   /* 文字放在图片上方 */
   .hero-content {
     position: relative;
@@ -1375,64 +1351,77 @@ html[lang="ja"] .lang-zh {
 }
 
 
-/* 电脑端不显示额外图片 */
-.hero-background-image {
+/* ===== 首页 Hero：电脑端 ===== */
+
+#home .hero-background-image {
   display: none;
 }
 
-/* ===== 手机竖屏和横屏 ===== */
-@media (max-width: 700px), (max-height: 500px) and (pointer: coarse) {
+/* ===== 首页 Hero：手机竖屏、横屏 ===== */
+
+@media (max-width: 700px),
+       (max-height: 500px) and (pointer: coarse) {
 
   #home.hero {
-    position: relative;
+    display: flex;
+    flex-direction: column;
 
     width: 94%;
     margin: 20px 3%;
+    padding: 0;
 
     min-height: 0;
     height: auto;
 
-    padding: 0;
-
-    background-image: none !important;
-    background-color: #f5f0e9;
-
-    display: grid;
-    overflow: hidden;
-    isolation: isolate;
+    background: #f5f0e9 !important;
+    overflow: visible;
+    isolation: auto;
   }
 
-  /* main.jpg 完整显示 */
+  /* 图片按照原始比例完整显示 */
   #home .hero-background-image {
     display: block;
 
-    grid-area: 1 / 1;
+    position: static;
 
     width: 100%;
     height: auto;
+    max-width: 100%;
 
     object-fit: contain;
     object-position: center;
+
+    flex: none;
+    margin: 0;
+    padding: 0;
   }
 
-  /* 欢迎文字叠加在图片前 */
+  /* 文字放在图片下方，不遮挡图片 */
   #home .hero-content {
-    grid-area: 1 / 1;
-
     position: relative;
-    z-index: 1;
-
-    align-self: center;
-    justify-self: center;
+    display: block;
 
     width: 100%;
-    padding: 20px;
+    max-width: none;
+
+    padding: 24px 16px;
 
     text-align: center;
+    background: #8b5e3c;
+
+    z-index: 1;
   }
 
   #home.hero h1 {
     font-size: clamp(24px, 6vw, 34px);
+    color: #fff;
+  }
+
+  #home.hero .hero-description {
+    width: 100%;
+    margin: 16px auto;
+    padding: 16px;
+    font-size: 14px;
   }
 
   #home.hero::before,
@@ -1440,8 +1429,6 @@ html[lang="ja"] .lang-zh {
     content: none !important;
   }
 }
-
-
 
 
   
