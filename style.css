@@ -354,10 +354,6 @@
   }
 
 /* 电脑端隐藏手机专用背景 */
-.hero-mobile-bg {
-  display: none;
-}
-
 @media (max-width: 700px) {
 
   /* Hero 窗口 */
@@ -384,25 +380,6 @@
     isolation: isolate;
   }
 
-  /* 图片层 */
-  .hero-mobile-bg {
-    display: block;
-
-    position: sticky;
-    top: 0;
-
-    width: 100%;
-    height: 500px;
-    margin-bottom: -500px;
-
-    background-image: url("images/main.jpg");
-    background-position: center center;
-    background-size: contain;
-    background-repeat: no-repeat;
-
-    z-index: -1;
-    pointer-events: none;
-  }
 
   /* 文字放在图片上方 */
   .hero-content {
@@ -1398,60 +1375,73 @@ html[lang="ja"] .lang-zh {
 }
 
 
+/* ===== 首页 main.jpg 手机显示修复 ===== */
 
-/* ===== 手机端图片裁切诊断 ===== */
+/* 电脑端不显示额外的图片 */
+.hero-background-image {
+  display: none;
+}
+
 @media (max-width: 700px) {
 
+  /* 首页 Hero */
   #home.hero {
-    background: none !important;
-    overflow: visible !important;
-    min-height: 0 !important;
-    height: auto !important;
+    position: relative;
+    isolation: isolate;
+
+    width: 94%;
+    margin: 20px 3%;
+
+    min-height: 500px;
+    height: auto;
+
+    padding: 40px 20px;
+
+    /* 取消原来的背景图片 */
+    background-image: none !important;
+    background-color: #f5f0e9;
+    background-attachment: scroll;
+
+    /* 图片只显示在 Hero 内 */
+    overflow: hidden;
   }
 
-  #home .hero-mobile-bg {
-    display: none !important;
+  /* main.jpg 图片 */
+  #home .hero-background-image {
+    display: block;
+
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    /* 完整显示图片，不裁切 */
+    object-fit: contain;
+    object-position: center;
+
+    z-index: -1;
+    pointer-events: none;
   }
 
+  /* 欢迎文字显示在图片前面 */
   #home .hero-content {
     position: relative;
     z-index: 1;
   }
 
-  #home::before,
-  #home::after {
-    content: none !important;
+  /* 禁用之前的伪元素背景 */
+  #home.hero::before,
+  #home.hero::after {
+    content: none;
   }
-}
 
-/* ===== Safari 图片测试 ===== */
-#home .hero-test-image {
-  display: block !important;
-
-  position: relative !important;
-  width: 100% !important;
-  height: auto !important;
-  max-width: 100% !important;
-
-  object-fit: contain !important;
-
-  opacity: 1 !important;
-  visibility: visible !important;
-  z-index: 10 !important;
-
-  border: 3px solid red !important;
-}
-
-@media (max-width: 700px) {
-  #home .hero-test-image {
-    display: block;
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-    object-fit: contain;
+  /* 手机标题 */
+  #home.hero h1 {
+    font-size: 34px;
   }
-}
 
+}
 
 
 
