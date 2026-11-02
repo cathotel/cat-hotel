@@ -2,79 +2,64 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>肉球マチ1号ホテル</title>
+  <title>肉球マチ2号ホテル</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+
 <header class="site-header">
   <div class="header-inner">
-    <a href="index.html" class="logo">
-      <span class="logo-ja">肉球マチ</span>
-      <span class="logo-zh">肉球町</span>
+
+    <a href="index.html" class="logo" data-i18n="site.name">
+      肉球マチ
     </a>
+
     <nav class="nav">
-      <a href="#home">
-        <span class="nav-ja">Home</span>
-        <span class="nav-zh">首页</span>
-      </a>
-
-      <a href="#about">
-        <span class="nav-ja">私の物語</span>
-        <span class="nav-zh">我的故事</span>
-      </a>
-
-      <a href="hotel1.html">
-        <span class="nav-ja">1号ホテル</span>
-        <span class="nav-zh">1号酒店</span>
-      </a>
-
-      <a href="hotel2.html">
-        <span class="nav-ja">2号ホテル</span>
-        <span class="nav-zh">2号酒店</span>
-      </a>
-
-      <a href="#gallery">
-        <span class="nav-ja">ホテルの写真</span>
-        <span class="nav-zh">酒店照片</span>
-      </a>
-
-      <a href="#contact">
-        <span class="nav-ja">お問い合わせ</span>
-        <span class="nav-zh">联系我们</span>
-      </a>
+      <a href="index.html#home" data-i18n="nav.home">Home</a>
+      <a href="index.html#about" data-i18n="nav.story">私の物語</a>
+      <a href="hotel1.html" data-i18n="nav.hotel1">1号ホテル</a>
+      <a href="hotel2.html" data-i18n="nav.hotel2">2号ホテル</a>
+      <a href="#" id="language-toggle">中国語</a>
+      <a href="#contact" data-i18n="nav.contact">問い合わせ</a>
     </nav>
+
   </div>
 </header>
+
 
 <main>
 
 <section class="hotel-detail-hero">
   
+
 <div class="hotel-detail-text fade-left">
 
   <p class="overline">Cat hotel</p>
 
-  <h1>肉球マチ2号店にようこそ</h1>
+  <h1 data-i18n="hotel2detail.welcome">
+    肉球マチ2号店にようこそ
+  </h1>
 
-  <p class="hotel-description">
+  <p class="hotel-description" data-i18n="hotel2detail.description">
     宿泊は1日分として計算され、営業時間外の送迎には半日分の追加料金が発生します。
     お部屋は感染症や怪我の心配のない。
   </p>
 
-  <p class="hotel-highlight">
+  <p class="hotel-highlight" data-i18n-html="hotel2detail.highlight">
     完全個室<br>
     完全予約制
   </p>
 
-  <a href="tel:0482297978" class="main-button">
+  <a href="tel:0482297978"
+     class="main-button"
+     data-i18n="hotel2detail.contact">
     Contact Us
   </a>
 
 </div>
-
 
   <div class="hotel-detail-image fade-right">
     <img src="images/hotel2-main.jpg" alt="肉球マチ2号店">
@@ -86,23 +71,25 @@
     <div class="info-icon">
       <img src="images/Location.svg" alt="Location logo">
     </div>
-    <h3>Find Us</h3>
-    <p>埼玉県蕨市中央3-22-15金沢ビル1階</p>
+    <h3 data-i18n="info.find">Find Us</h3>
+    <p data-i18n="hotel2detail.address">
+      埼玉県蕨市中央3-22-15金沢ビル1階
+    </p>
   </div>
 
   <div class="info-card">
     <div class="info-icon">
     <img src="images/Time.svg" alt="Open Hours logo">
   </div>
-    <h3>Open Hours</h3>
-    <p>1 PM - 10 PM</p>
+    <h3 data-i18n="info.hours">Open Hours</h3>
+    <p data-i18n="info.hoursValue">1 PM - 10 PM</p>
   </div>
 
   <div class="info-card">
     <div class="info-icon">
     <img src="images/Calendar.svg" alt="Reservation logo">
   </div>
-    <h3>Reservation</h3>
+    <h3 data-i18n="info.reservation">Reservation</h3>
     <p>0482297978</p>
   </div>
 </section>
@@ -112,17 +99,21 @@
 
   <!-- 左边：标题和文字 -->
   <div class="vip-room-text">
-    <h2>VIPスイートルーム</h2>
+    
+  <h2 data-i18n="room.vip">VIPスイートルーム</h2>
 
-    <p>
-      猫ちゃんが快適に過ごせるように設計されています。
-      部屋内には、キャットタワーや窓際スペースがあり、
-      猫の運動やリラックスに最適です。
-      木目調の温かみのあるインテリアが
-      落ち着いた雰囲気を演出しています。
-    </p>
+  <p data-i18n="hotel2detail.vip.description">
+    猫ちゃんが快適に過ごせるように設計されています。
+    部屋内には、キャットタワーや窓際スペースがあり、
+    猫の運動やリラックスに最適です。
+    木目調の温かみのあるインテリアが
+    落ち着いた雰囲気を演出しています。
+  </p>
 
-    <div class="vip-room-price">5,500円 / 泊</div>
+  <div class="vip-room-price" data-i18n="hotel2detail.vip.price">
+    5,500円 / 泊
+  </div>
+
   </div>
 
   <!-- 右边：图片轮播 -->
@@ -155,14 +146,21 @@
 
   <!-- 左侧文字 -->
   <div class="vip-room-text">
-    <h2>シニアルーム</h2>
+    
+    <h2 data-i18n="hotel2detail.senior.title">
+      シニアルーム
+    </h2>
 
-  <p>
-    シングルキャットが快適に過ごせる空間であり、2匹の猫が一緒に利用するとさらにお得になります。部屋内にはキャットタワーや遊び場が備わっており、猫がリラックスしながら運動を楽しむことができます。
-  </p>
+    <p data-i18n="hotel2detail.senior.description">
+      シングルキャットが快適に過ごせる空間であり、2匹の猫が一緒に利用するとさらにお得になります。部屋内にはキャットタワーや遊び場が備わっており、猫がリラックスしながら運動を楽しむことができます。
+    </p>
 
-    <div class="vip-room-price">3,850円 / 泊</div>
+    <div class="vip-room-price" data-i18n="hotel2detail.senior.price">
+      3,850円 / 泊
+    </div>
+
   </div>
+
 
   <!-- 右侧图片 -->
   <div class="vip-slider">
@@ -188,15 +186,19 @@
 
   <!-- 左侧文字 -->
   <div class="vip-room-text">
-    <h2>ジュニアルーム</h2>
+    
+    <h2 data-i18n="hotel2detail.junior.title">
+      ジュニアルーム
+    </h2>
 
-    <p>
+    <p data-i18n="hotel2detail.junior.description">
       この猫のシングルルームは、1匹の猫が快適に独り占めできる適度な広さの空間です。木目調のインテリアが落ち着いた雰囲気を演出しており、大切な猫ちゃんにぴったりの居心地の良い環境を提供します。
     </p>
 
-    <div class="vip-room-price">
+    <div class="vip-room-price" data-i18n="hotel2detail.junior.price">
       1,980円 / 泊
     </div>
+
   </div>
 
   <!-- 右侧：两张图片，一大一小 -->
@@ -222,19 +224,21 @@
 <section class="hotel-notes">
 
   <!-- 左侧：备注文字 -->
-  <div class="hotel-notes-left">
+  
+<div class="hotel-notes-left">
 
-    <h2>備考</h2>
+  <h2 data-i18n="notes.title">備考</h2>
 
-    <p>
-      ・祝日料金：+550元/日（元旦、春節、ゴールデンウィーク、お盆）10日ご利用ごとに1日分無料。ただし、延長日数はこのキャンペーンの対象外となります。
-    </p>
+  <p data-i18n="hotel1detail.notes.holiday">
+    ・祝日料金：+550元/日（元旦、春節、ゴールデンウィーク、お盆）10日ご利用ごとに1日分無料。ただし、延長日数はこのキャンペーンの対象外となります。
+  </p>
 
-    <p>
-      ・完全予約制：早めのチェックアウトの場合、残りの日数の宿泊料金の半額を返金します。食事や毛布はご持参ください。猫砂や爪とぎ板は無料で提供します。
-    </p>
+  <p data-i18n="hotel1detail.notes.booking">
+    ・完全予約制：早めのチェックアウトの場合、残りの日数の宿泊料金の半額を返金します。食事や毛布はご持参ください。猫砂や爪とぎ板は無料で提供します。
+  </p>
 
-  </div>
+</div>
+
 
   <!-- 右侧：摄像头和医院 -->
   
@@ -248,7 +252,9 @@
       alt="CCTVカメラ"
       loading="lazy"
     >
-    <p>CCTVカメラ（CCTV）￥99/泊</p>
+    <p data-i18n="hotel1detail.notes.camera">
+      CCTVカメラ（CCTV）￥99/泊
+    </p>
   </li>
 
   <!-- 医院 -->
@@ -258,7 +264,9 @@
       alt="猫の病院送迎"
       loading="lazy"
     >
-    <p>猫を病院に連れて行く￥3000/回</p>
+    <p data-i18n="hotel1detail.notes.hospital">
+      猫を病院に連れて行く￥3000/回
+    </p>
   </li>
 
 </ul>
@@ -274,19 +282,24 @@
     <!-- 左边：联系信息 -->
     <div class="contact-info fade-left">
 
-      <h2>問い合わせ</h2>
+      
+    <h2 data-i18n="contact.title">問い合わせ</h2>
 
-      <p>埼玉県蕨市中央3-22-15金沢ビル1階</p>
+    <p data-i18n="hotel2detail.address">
+      埼玉県蕨市中央3-22-15金沢ビル1階
+    </p>
 
-      <p>
-        OPEN 13:00〜22:00〈事前予約〉
-      </p>
+    <p data-i18n="contact.hours">
+      OPEN 13:00〜22:00〈事前予約〉
+    </p>
+
 
       <a
         href="https://www.google.com/maps/search/?api=1&amp;query=埼玉県蕨市中央3-22-15金沢ビル1階"
         target="_blank"
         rel="noopener noreferrer"
-        class="contact-map-button">
+        class="contact-map-button"
+        data-i18n="contact.map">
         Open with Google map
       </a>
 
@@ -307,22 +320,24 @@
 
 
 <!-- ===== 動物取扱業登録証 ===== -->
+
 <section class="animal-registration">
 
-  <h2>動物取扱業登録証</h2>
+  <h2 data-i18n="registration.title">
+    動物取扱業登録証
+  </h2>
 
   <div class="license-grid">
-    <p>【事業所の名称】肉球マチ・2号店</p>
-    <p>【動物取扱業の種別】保管</p>
-    <p>【有効期限の末日】令和11年3月24日</p>
-    <p>【登録年月日】令和6年3月25日</p>
-    <p>【番号】第770079</p>
-    <p>【動物取扱業責任者】邢亜輝</p>
-
-    
+    <p data-i18n="hotel2detail.license.business">【事業所の名称】肉球マチ・2号店</p>
+    <p data-i18n="hotel2detail.license.type">【動物取扱業の種別】保管</p>
+    <p data-i18n="hotel2detail.license.expiry">【有効期限の末日】令和11年3月24日</p>
+    <p data-i18n="hotel2detail.license.date">【登録年月日】令和6年3月25日</p>
+    <p data-i18n="hotel2detail.license.number">【番号】第770079</p>
+    <p data-i18n="hotel2detail.license.manager">【動物取扱業責任者】邢亜輝</p>
   </div>
 
 </section>
+
 
 
 </main>
@@ -386,6 +401,6 @@ function updateSlider() {
   updateSlider();
 });
 </script>
-
+<script src="language.js"></script>
 </body>
 </html>

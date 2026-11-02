@@ -41,28 +41,6 @@
   white-space: nowrap;
 }
 
-.logo-ja,
-.logo-zh {
-  grid-area: 1 / 1;
-  transition: opacity 0.25s ease;
-}
-
-.logo-ja {
-  opacity: 1;
-}
-
-.logo-zh {
-  opacity: 0;
-}
-
-.logo:hover .logo-ja {
-  opacity: 0;
-}
-
-.logo:hover .logo-zh {
-  opacity: 1;
-}
-
 .logo,
 .logo:visited,
 .logo:hover {
@@ -95,45 +73,11 @@
   margin: 0;
 }
 
-/* 两种语言占据同一个位置 */
-.nav-ja,
-.nav-zh {
-  grid-area: 1 / 1;
-  transition: opacity 0.25s ease;
-}
-
-/* 中文也参与宽度计算，避免切换时导航跳动 */
-.nav-ja {
-  opacity: 1;
-}
-
-.nav-zh {
-  opacity: 0;
-}
-
-/* 鼠标放上去显示中文 */
-.nav a:hover .nav-ja {
-  opacity: 0;
-}
-
-.nav a:hover .nav-zh {
-  opacity: 1;
-}
-
 /* 始终没有下划线 */
 .nav a:hover,
 .nav a:focus-visible {
   color: #8b5e3c;
   text-decoration: none;
-}
-
-/* 键盘操作也可以切换 */
-.nav a:focus-visible .nav-ja {
-  opacity: 0;
-}
-
-.nav a:focus-visible .nav-zh {
-  opacity: 1;
 }
   
   /* 一番上の背景画像エリア */
@@ -1355,6 +1299,52 @@
   }
 }
 
+
+/* ===== 语言切换 ===== */
+
+/* 默认显示日文 */
+.lang-zh {
+  display: none;
+}
+
+/* 中文模式：隐藏日文 */
+html[lang="zh"] .lang-ja{
+  display: none;
+}
+
+/* 中文模式：显示中文 */
+html[lang="zh"] .lang-zh
+{
+  display: inline;
+}
+
+/* 日文模式：显示日文 */
+html[lang="ja"] .lang-ja{
+  display: inline;
+}
+
+/* 日文模式：隐藏中文 */
+html[lang="ja"] .lang-zh {
+  display: none;
+}
+
+
+/* ===== 点击切换语言 ===== */
+
+#language-toggle {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#language-toggle:hover {
+  color: #8b5e3c;
+}
+
+/* 翻译后保留原来的文字布局 */
+[data-i18n],
+[data-i18n-html] {
+  overflow-wrap: anywhere;
+}
 
 
 

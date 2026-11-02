@@ -10,57 +10,35 @@
 
 <body>
 
+
 <header class="site-header">
   <div class="header-inner">
-    <a href="index.html" class="logo">
-      <span class="logo-ja">肉球マチ</span>
-      <span class="logo-zh">肉球町</span>
-    </a>
+    <a href="index.html" class="logo" data-i18n="site.name">肉球マチ</a>
+
     <nav class="nav">
-      <a href="#home">
-        <span class="nav-ja">Home</span>
-        <span class="nav-zh">首页</span>
-      </a>
-
-      <a href="#about">
-        <span class="nav-ja">私の物語</span>
-        <span class="nav-zh">我的故事</span>
-      </a>
-
-      <a href="hotel1.html">
-        <span class="nav-ja">1号ホテル</span>
-        <span class="nav-zh">1号酒店</span>
-      </a>
-
-      <a href="hotel2.html">
-        <span class="nav-ja">2号ホテル</span>
-        <span class="nav-zh">2号酒店</span>
-      </a>
-
-      <a href="#gallery">
-        <span class="nav-ja">ホテルの写真</span>
-        <span class="nav-zh">酒店照片</span>
-      </a>
-
-      <a href="#contact">
-        <span class="nav-ja">お問い合わせ</span>
-        <span class="nav-zh">联系我们</span>
-      </a>
+      <a href="#home" data-i18n="nav.home">Home</a>
+      <a href="#about" data-i18n="nav.story">私の物語</a>
+      <a href="hotel1.html" data-i18n="nav.hotel1">1号ホテル</a>
+      <a href="hotel2.html" data-i18n="nav.hotel2">2号ホテル</a>
+      <a href="#" id="language-toggle">中国語</a>
+      <a href="#contact" data-i18n="nav.contact">問い合わせ</a>
     </nav>
   </div>
 </header>
+
 
 <main>
 
   <section id="home" class="hero">
     <div class="hero-content">
-      <h1>肉球マチへ<br>ようこそ</h1>
+      
+    <h1 data-i18n-html="home.welcome">肉球マチへ<br>ようこそ</h1>
 
-      <p class="hero-description">
-        肉球マチキャットホテル<br>
-        2019年に二人が二台の自転車で無償の野良猫救助活動を始めたことからスタートしました。<br>
-        私たちの原点は「愛」です。
-      </p>
+    <p class="hero-description" data-i18n-html="home.description">
+      肉球マチキャットホテル<br>
+      2019年に二人が二台の自転車で無償の野良猫救助活動を始めたことからスタートしました。<br>
+      私たちの原点は「愛」です。
+    </p>
   
       <!-- YouTube再生ボタン -->
       <a
@@ -79,9 +57,9 @@
 
 
 <section id="about" class="section">
-  <h2>肉球マチの強み</h2>
+  <h2 data-i18n="about.title">肉球マチの強み</h2>
 
-  <p class="lead">
+  <p class="lead" data-i18n="about.description">
     私たちはこれまでに600匹以上の猫を救助し、新たな家族へと繋げてきました。
     猫の快適さを最優先に考え、最高品質の素材で作られたスペースを提供しています。
     また、医療用の強力な除菌システムを導入し、安全で清潔な環境を整えています。
@@ -91,37 +69,37 @@
 
     <div class="feature-card">
       <img src="images/playroom.jpg" alt="猫専用のプレイルーム">
-      <h3>猫専用のプレイルーム</h3>
-      <p>猫が自由に遊べる広々とした快適な空間で、運動やリラックスに最適です。</p>
+      <h3 data-i18n="feature.playroom.title">猫専用のプレイルーム</h3>
+      <p data-i18n="feature.playroom.description">猫が自由に遊べる広々とした快適な空間で、運動やリラックスに最適です。</p>
     </div>
 
     <div class="feature-card">
       <img src="images/private-room.jpg" alt="全部個室">
-      <h3>全部個室</h3>
-      <p>感染症や怪我の心配がない完全個室です。</p>
+      <h3 data-i18n="feature.private.title">全部個室</h3>
+      <p data-i18n="feature.private.description">感染症や怪我の心配がない完全個室です。</p>
     </div>
 
     <div class="feature-card">
       <img src="images/running.jpg" alt="猫専用ランニングマシン">
-      <h3>猫専用ランニングマシン</h3>
-      <p>運動不足やストレスの解消に役立ちます。</p>
+      <h3 data-i18n="feature.running.title">猫専用ランニングマシン</h3>
+      <p data-i18n="feature.running.description">運動不足やストレスの解消に役立ちます。</p>
     </div>
 
     <div class="feature-card">
       <img src="images/support.jpg" alt="安心サポート">
-      <h3>安心サポート</h3>
-      <p>自然素材の塗料を使用し、衛生・健康面に配慮した空間を提供しています。</p>
+      <h3 data-i18n="feature.support.title">安心サポート</h3>
+      <p data-i18n="feature.support.description">自然素材の塗料を使用し、衛生・健康面に配慮した空間を提供しています。</p>
     </div>
 
     <div class="feature-card">
       <img src="images/clean.jpg" alt="医療用強力な除菌">
-      <h3>医療用強力な除菌</h3>
-      <p>アクアサニターは、動物の白血球が生成する次亜塩素酸（HClO）を使用し、細菌やウイルスなどの微生物のみを除去します。</p>
+      <h3 data-i18n="feature.clean.title">医療用強力な除菌</h3>
+      <p data-i18n="feature.clean.description">アクアサニターは、動物の白血球が生成する次亜塩素酸（HClO）を使用し、細菌やウイルスなどの微生物のみを除去します。</p>
     </div>
 
     <div class="feature-card">
       <img src="images/camera.jpg" alt="24Hカメラ（CCTV）">
-      <h3>24Hカメラ（CCTV）</h3>
+      <h3 data-i18n="feature.camera.title">24Hカメラ（CCTV）</h3>
       <p>24時間稼働するカメラを設置し、飼い主様がいつでも愛猫の様子を確認できる環境を整えています。</p>
     </div>
 
@@ -135,8 +113,8 @@
   </div>
 
   <div class="hotel-text fade-right">
-    <h2>肉球マチホテル1号</h2>
-    <p>
+    <h2 data-i18n="hotel1.title">肉球マチホテル1号</h2>
+    <p data-i18n="hotel1.description">
       お部屋は4タイプをご用意。「安全」「安心」「快適」を徹底的に追求しています。
       すべてのお部屋は猫ちゃんがリラックスできる完全個室です。
       少しでもストレスなく過ごせるよう工夫を凝らし、
@@ -144,7 +122,7 @@
       また、猫ちゃんの身体に優しい微酸性次亜塩素酸水（HClO）を使用し、
       徹底的な消毒を行っています。
     </p>
-    <a href="hotel1.html" class="sub-button">Explore</a>
+    <a href="hotel1.html" class="sub-button" data-i18n="common.explore">Explore</a>
   </div>
 </section>
 
@@ -157,13 +135,13 @@
 
   <!-- テキスト（左から） -->
   <div class="hotel-text fade-left">
-    <h2>肉球マチホテル2号</h2>
-    <p>
+    <h2 data-i18n="hotel2.title">肉球マチホテル2号</h2>
+    <p data-i18n="hotel2.description">
       お部屋は3タイプをご用意。「安全」「安心」「快適」を徹底的に追求しています。
       広々とした運動スペースを完備し、猫ちゃんが快適に過ごせるよう配慮されています。
       運動不足を防ぎながら、ストレスを軽減する環境を提供いたします。
     </p>
-    <a href="hotel2.html" class="sub-button">Explore</a>
+    <a href="hotel2.html" class="sub-button" data-i18n="common.explore">Explore</a>
   </div>
 
 </section>
@@ -175,22 +153,22 @@
 
     <!-- 左边文字 -->
     <div class="gallery-info">
-      <h2>ホテルの写真</h2>
+      <h2 data-i18n="gallery.title">ホテルの写真</h2>
 
       <div class="gallery-features">
         <p>
           <span class="check-icon">✓</span>
-          全部個室
+          <span data-i18n="gallery.private">全部個室</span>
         </p>
 
         <p>
           <span class="check-icon">✓</span>
-          広々としたパブリックスペース
+          <span data-i18n="gallery.space">広々としたパブリックスペース</span>
         </p>
 
         <p>
           <span class="check-icon">✓</span>
-          冷暖房完備
+          <span data-i18n="gallery.air">冷暖房完備</span>
         </p>
       </div>
     </div>
@@ -229,27 +207,29 @@
     <!-- 左边：联系信息 -->
     <div class="contact-info fade-left">
 
-      <h2>問い合わせ</h2>
+      <h2 data-i18n="contact.title">問い合わせ</h2>
 
-      <p>
+     
+      <p data-i18n="contact.address">
         埼玉県蕨市北町4-5-16 3F肉球町
       </p>
 
-      <p>
+      <p data-i18n="contact.access">
         蕨駅から徒歩15分、北町4丁目［蕨市］バス停から徒歩1分
       </p>
 
-      <p>
+      <p data-i18n="contact.hours">
         OPEN 13:00〜22:00〈事前予約〉
       </p>
 
-      <a
-        href="https://www.google.com/maps/search/?api=1&query=%E5%9F%BC%E7%8E%89%E7%9C%8C%E8%95%A8%E5%B8%82%E5%8C%97%E7%94%BA4-5-16"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="contact-map-button">
-        Open with Google map
-      </a>
+     <a
+      href="https://www.google.com/maps/search/?api=1&query=%E5%9F%BC%E7%8E%89%E7%9C%8C%E8%95%A8%E5%B8%82%E5%8C%97%E7%94%BA4-5-16"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="contact-map-button"
+      data-i18n="contact.map">
+      Open with Google map
+    </a>
 
     </div>
 
@@ -269,8 +249,6 @@
 
 </main>
 
-</body>
-</html>
 <script>
   const elements = document.querySelectorAll('.fade-left, .fade-right');
   
@@ -289,3 +267,6 @@
   window.addEventListener('scroll', showOnScroll);
   showOnScroll();
   </script>
+  <script src="language.js"></script>
+</body>
+</html>
