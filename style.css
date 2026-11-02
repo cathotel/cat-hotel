@@ -1389,6 +1389,7 @@ html[lang="ja"] .lang-zh {
     /* sticky 不能被 hidden 裁切 */
     overflow: visible;
     isolation: isolate;
+    padding-bottom: 70px;
   }
 
   /* 图片所在的 sticky 层 */
@@ -1443,6 +1444,13 @@ html[lang="ja"] .lang-zh {
     /* 不使用不透明背景盖住图片 */
     background: transparent;
     margin-bottom: 0;
+    padding-bottom: 15px;
+  }
+
+  /* About 标题不被上一区域覆盖 */
+  #about {
+    position: relative;
+    z-index: 2;
   }
 
   #home.hero h1 {
