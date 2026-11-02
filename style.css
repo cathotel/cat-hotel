@@ -1425,8 +1425,21 @@ html[lang="ja"] .lang-zh {
 }
 
 /* ===== Safari 图片测试 ===== */
-.hero-test-image {
-  display: none;
+#home .hero-test-image {
+  display: block !important;
+
+  position: relative !important;
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+
+  object-fit: contain !important;
+
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 10 !important;
+
+  border: 3px solid red !important;
 }
 
 @media (max-width: 700px) {
